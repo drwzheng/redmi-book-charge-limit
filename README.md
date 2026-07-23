@@ -1,4 +1,5 @@
 # REDMI Book Charge Limit
+设置好任务后在属性里修改用户名，不要用system
 
 A PowerShell script for setting a battery charge limit on the **REDMI Book Pro 16 2025** running Windows 11.
 
