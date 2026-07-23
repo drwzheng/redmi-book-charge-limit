@@ -3,6 +3,8 @@ taskschd.msc 设置任务启动 改下用户名登陆
 
 Unregister-ScheduledTask -TaskName RedmiBookChargeLimit -Confirm:$false
 再
+
+
 $action = New-ScheduledTaskAction `
 -Execute "powershell.exe" `
 -Argument '-ExecutionPolicy Bypass -File "C:\ProgramData\RedmiBookChargeLimit\RedmiBookChargeLimit.ps1" -Action Set -Limit 70'
