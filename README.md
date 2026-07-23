@@ -1,6 +1,23 @@
 # REDMI Book Charge Limit
-设置好任务后在属性里修改用户名，不要用system
+设置好任务后在属性里修改用户名，不要用syste
 
+Unregister-ScheduledTask -TaskName RedmiBookChargeLimit -Confirm:$false
+再
+$action = New-ScheduledTaskAction `
+-Execute "powershell.exe" `
+-Argument '-ExecutionPolicy Bypass -File "C:\ProgramData\RedmiBookChargeLimit\RedmiBookChargeLimit.ps1" -Action Set -Limit 70'
+
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+
+$principal = New-ScheduledTaskPrincipal `
+-UserId $env:USERNAME `
+-RunLevel Highest
+
+Register-ScheduledTask `
+-TaskName "RedmiBookChargeLimit" `
+-Action $action `
+-Trigger $trigger `
+-Principal $principal
 A PowerShell script for setting a battery charge limit on the **REDMI Book Pro 16 2025** running Windows 11.
 
 May also work on other Xiaomi/Redmi laptops that use the `MiCommonInterface` WMI class.
