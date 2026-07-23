@@ -1,5 +1,5 @@
 # REDMI Book Charge Limit
-设置好任务后在属性里修改用户名，不要用syste
+taskschd.msc 设置任务启动 改下用户名登陆
 
 Unregister-ScheduledTask -TaskName RedmiBookChargeLimit -Confirm:$false
 再
